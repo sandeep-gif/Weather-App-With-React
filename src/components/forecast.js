@@ -5,25 +5,8 @@ import './forecast.scss'
 class Forecast extends React.Component {
   
   render() {
-    var yt=[];
     const city=this.props.searchValue;
-   
-    // fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${process.env.REACT_APP_WEATHER_APP_API}`).then(
-    //     res=> res.json()).then(
-    //       data => {
-            
-    //         for(let i=0;i<5;i++)
-    //         {
-    //          // console.log(data.list[i].main.temp);
-    //         yt.push(data.list[i].main.temp);
-             
-    //         }
-    //         console.log(yt)
-    //        document.getElementById("one").innerHTML=yt;
-          
-    //       }
-    //     ).catch(error => console.log(error))
-    var f=-1;
+    var count=-1;
     const item = this.props.day.map((k, j) => {
      
       const image = {
@@ -32,8 +15,8 @@ class Forecast extends React.Component {
       };
       const description = k.weather[0].description;
      
-   f++;
-    if(f<7)
+   count++;
+    if(count<7)
     {
       return (
         <div key={j} className="forecast-item">
